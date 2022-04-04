@@ -1,6 +1,5 @@
-# Yosef Awad - master branch
+# Yosef Awad - mainHmWrk branch
 
 ## Description
 
-this branch is to be used as a fresh start for all other branches.<br>
-I will fork from this branch every time i have a new HomeWork.
+all homeWork branches will have a pull request to this branch.
