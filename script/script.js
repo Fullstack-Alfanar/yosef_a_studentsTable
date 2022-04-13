@@ -63,4 +63,5 @@ function saveToTable() {
         missingTxt.style.color = "red";
         missingTxt.style.display = "block";
     }
+
 }
