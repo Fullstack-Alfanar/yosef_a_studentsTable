@@ -10,6 +10,53 @@
 </head>
 
 <body>
+    <div class="center">
+        <h2 class="promptHeader">Please input Student Name and Grade.</h2>
+        <div>
+            <input class="inputField" id="nameInput" type="text" placeholder="Name">
+            <input class="inputField" id="gradeInput" type="number" placeholder="Grade">
+        </div>
+        <button class="saveBtn" onclick="saveToTable()">Save input</button>
+        <div class="missingContainer">
+            <h3 id="missing"></h3>
+        </div>
+        <div class="smallTables">
+            <table class="smallTable">
+                <thead>
+                    <tr>
+                        <td><label>Student Count</label></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label id="stdCnt">0</label></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="smallTable">
+                <thead>
+                    <tr>
+                        <td><label>Grades Average</label></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label id="grdAvg">0</label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <table class="bigTable">
+            <thead>
+                <tr>
+                    <td><Label>Name</Label></td>
+                    <td><label>Grade</label></td>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
     <script src="script/script.js"></script>
 </body>
 

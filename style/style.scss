@@ -1,0 +1,191 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://m.media-amazon.com/images/I/81mYuxbNKVL._AC_SL1240_.jpg");
+    background-color: whitesmoke;
+}
+
+
+#missing {
+    display: none;
+    color: red;
+    text-shadow: 0 0 20px red;
+    animation: missingBlink 1s infinite;
+    transition: .5s all ease;
+}
+
+@keyframes missingBlink {
+    from {
+        color: rgba(255, 0, 0, 0);
+        text-shadow: none;
+    }
+
+    25% {
+
+        color: red;
+    }
+
+    45% {
+
+        color: red;
+        text-shadow: 0 0 10px red;
+    }
+
+    50% {
+        color: red;
+        text-shadow: 0 0 20px red;
+    }
+
+    75% {
+        color: red;
+        text-shadow: 0 0 10px red;
+    }
+
+    90% {
+        color: red;
+        text-shadow: none;
+    }
+
+    100% {
+        color: rgba(255, 0, 0, 0);
+    }
+}
+
+.missingContainer {
+    height: 41px;
+}
+
+
+.center {
+    display: flex;
+    align-items: center;
+    padding: 100px;
+    flex-direction: column;
+}
+
+.promptHeader {
+    margin-bottom: 30px;
+    font-size: 35px;
+    color: crimson;
+    text-shadow: 0 0 30px crimson;
+}
+
+.inputField {
+    background: rgba(137, 43, 226, 0.486);
+    color: white;
+    text-shadow: 0 0 30px white;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    border: 2px solid blueviolet;
+    box-shadow: inset 0 0 10px blueviolet, 0 0 10px blueviolet;
+
+}
+
+.inputField:focus {
+    box-shadow: inset 0 0 50px blueviolet, 0 0 50px blueviolet;
+    outline: none;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.saveBtn {
+    margin: 20px;
+    font-size: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    border-radius: 15px;
+    border: 2px solid white;
+
+    color: white;
+    text-shadow: 0 0 20px white;
+    box-shadow: inset 0 0 20px white, 0 0 20px white;
+
+    cursor: pointer;
+
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.bigTable {
+    width: 50%;
+    min-width: 500px;
+    border: 2px solid aqua;
+    border-radius: 20px 20px 20px 20px;
+    font-size: 25px;
+    color: white;
+    text-shadow: 0 0 20px white;
+
+    box-shadow: inset 0 0 20px aqua, 0 0 20px aqua;
+
+    thead {
+        tr {
+            background-color: rgba(0, 255, 255, 0.87);
+            border-radius: 20px 20px 0 0;
+            border-bottom: 2px solid aqua;
+            box-shadow: 0 0 20px aqua;
+            margin-bottom: 20px;
+        }
+    }
+
+    tr {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.smallTables {
+    display: flex;
+    margin: 20px;
+}
+
+.smallTable {
+
+    width: 200px;
+    border: 2px solid coral;
+    border-radius: 20px 20px 20px 20px;
+    margin: 30px;
+    font-size: 25px;
+    color: white;
+
+    text-shadow: 0 0 20px white;
+
+    box-shadow: inset 0 0 20px coral, 0 0 20px coral;
+
+    thead {
+        tr {
+            background-color: rgba(255, 127, 80, 0.856);
+            border-radius: 20px 20px 0 0;
+            border-bottom: 2px solid coral;
+            box-shadow: 0 0 20px coral;
+        }
+    }
+
+    tr {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
