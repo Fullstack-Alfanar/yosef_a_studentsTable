@@ -1,6 +1,6 @@
-# Yosef Awad - master branch
+# Class 19 HomeWork
 
-## Description
+this branch will not be merged with branch main because to the work is not a page it is the code in the file `script/script.js`.
 
-this branch is to be used as a fresh start for all other branches.<br>
-I will fork from this branch every time i have a new HomeWork.
+Author: **Yosef Awad**<br>
+Date: **13/4/2022**
