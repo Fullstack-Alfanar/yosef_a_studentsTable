@@ -1,7 +1,7 @@
-# Class 19 HomeWork
+# Class 20 HomeWork - main branch
 
-this branch will not be merged with branch main because to the work is not a page it is the code in the file `script/script.js`.
+all pull requests will be to this branch.<br>
+this branch will be the main page of this project<br>
 
 Author: **Yosef Awad**<br>
-Date: **13/4/2022**
-
+Date: **16/4/2022**
