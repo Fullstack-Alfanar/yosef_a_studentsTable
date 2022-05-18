@@ -11,34 +11,41 @@ let sum = 0, count = 0, stdArray = [];
 function readInput() {
     let nameTxt = document.getElementById("nameInput");
     let gradeTxt = document.getElementById("gradeInput");
+    let imageURL = document.getElementById("imageInput");
     let missingTxt = document.getElementById("missing");
     let missingStr = "Invalid parameters: ";
     let validName = (nameTxt.value == "" || nameTxt.value == null) || !validateName(nameTxt.value) ? false : true;
     let validGrade = gradeTxt.value == "" || gradeTxt.value == null ? false : true;
+    let validImgURL = imageURL.value == "" || imageURL.value == null ? false : true;
     let stdObj;
 
     if (validGrade) {
         if (!(Number.parseInt(gradeTxt.value) >= 0 && Number.parseInt(gradeTxt.value) <= 100)) { validGrade = false }
     }
 
-    if (validName && validGrade) {
+    if (validName && validGrade && validImgURL) {
         missingStr = "Invalid parameters: ";
         missingTxt.style.display = "none";
 
-        saveToTable(Number.parseInt(gradeTxt.value), nameTxt.value);
+        let date = new Date();
+        let time = `${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
 
-        stdObj = { stdName: nameTxt.value, stdGrade: Number.parseInt(gradeTxt.value) };
+        saveToTable(Number.parseInt(gradeTxt.value), nameTxt.value, time, imageURL);
+
+        stdObj = { stdName: nameTxt.value, stdGrade: Number.parseInt(gradeTxt.value), time: time, imgURL: imageURL.value };
         stdArray.push(stdObj);
         saveToLocalStorage();
 
         nameTxt.value = "";
         gradeTxt.value = "";
+        imageURL.value = "";
     } else {
         if ((gradeTxt.value != "" && gradeTxt.value != null) && Number.parseInt(gradeTxt.value) >= 9000) missingStr = "Whaattt its over 9000!"
         else {
             missingStr = "Invalid parameters: ";
             if (!validName) missingStr += "name ";
             if (!validGrade) missingStr += "grade ";
+            if (!validImgURL) missingStr += "imageURL ";
 
         }
         missingTxt.textContent = missingStr;
@@ -54,7 +61,7 @@ function readInput() {
  * @param {number} grade the grade of the student
  * @param {string} stdName the name of the student
  */
-function saveToTable(grade, stdName) {
+function saveToTable(grade, stdName, time, imageURL) {
     // get some HTML elements
     let studentCount = document.getElementById("stdCnt");
     let gradeAverage = document.getElementById("grdAvg");
@@ -65,8 +72,12 @@ function saveToTable(grade, stdName) {
     let tr = document.createElement("tr");
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
+    let td3 = document.createElement("td");
+    let td4 = document.createElement("td");
     let label1 = document.createElement("label");
     let label2 = document.createElement("label");
+    let label3 = document.createElement("label");
+    let image = document.createElement("img");
 
     // append the sum of all grades, and the count of all students
     sum += grade;
@@ -83,6 +94,14 @@ function saveToTable(grade, stdName) {
     label2.textContent = grade;
     td2.appendChild(label2);
     tr.appendChild(td2);
+
+    label3.textContent = time;
+    td3.appendChild(label3);
+    tr.appendChild(td3);
+
+    image.src = imageURL;
+    td4.appendChild(image);
+    tr.appendChild(td4);
 
     tableBody.appendChild(tr);
 }
@@ -103,7 +122,7 @@ function readLocalStorage() {
     if (localStorage.getItem("studentsList")) {
         stdArray = JSON.parse(localStorage.getItem("studentsList"));
         for (const i of stdArray) {
-            saveToTable(i.stdGrade, i.stdName);
+            saveToTable(i.stdGrade, i.stdName, i.time, i.imgURL);
         }
     }
 }
